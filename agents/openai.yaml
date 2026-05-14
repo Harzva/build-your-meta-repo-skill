@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Your Meta Repo"
+  short_description: "Create auto-updating GitHub meta repositories."
+  default_prompt: "Use $build-your-meta-repo to create an auto-updating GitHub meta repository for my account."

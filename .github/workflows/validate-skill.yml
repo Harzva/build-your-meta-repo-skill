@@ -1,0 +1,33 @@
+name: Validate skill
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile scripts
+        run: python -m py_compile scripts/build_meta_repo.py scripts/update_meta_template.py
+
+      - name: Check skill metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("SKILL.md").read_text(encoding="utf-8")
+          assert text.startswith("---\n"), "SKILL.md must start with YAML frontmatter"
+          assert "name: build-your-meta-repo" in text
+          assert "description:" in text
+          print("Skill metadata looks valid.")
+          PY
