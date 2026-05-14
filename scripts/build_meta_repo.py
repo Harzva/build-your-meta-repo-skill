@@ -125,7 +125,7 @@ SOFTWARE.
 
 
 MODES = {
-    "atlas": ("project-atlas", "Top-level categorized repository atlas."),
+    "atlas": ("project-atlas", "Download-first project atlas for APK, EXE, package, and release asset links."),
     "release": ("release-hub", "Auto-updating release dashboard."),
     "pages": ("pages-hub", "Visual GitHub Pages gallery."),
     "skills": ("skills-hub", "Skill and workflow registry."),
@@ -178,8 +178,7 @@ def build_one(owner: str, output: Path, prefix: str, mode: str, fetch: bool, com
     shutil.copyfile(UPDATE_TEMPLATE, repo_dir / "scripts" / "update_meta.py")
     write(repo_dir / "meta.config.json", json.dumps(config, ensure_ascii=False, indent=2))
     write(repo_dir / ".github" / "workflows" / "update-meta.yml", UPDATE_WORKFLOW)
-    if mode in {"atlas", "pages"}:
-        write(repo_dir / ".github" / "workflows" / "deploy-pages.yml", PAGES_WORKFLOW)
+    write(repo_dir / ".github" / "workflows" / "deploy-pages.yml", PAGES_WORKFLOW)
     write(repo_dir / "LICENSE", LICENSE.format(owner=owner))
 
     if fetch:

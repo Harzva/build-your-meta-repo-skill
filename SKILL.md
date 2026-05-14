@@ -15,7 +15,7 @@ python C:\Users\harzva\.codex\skills\build-your-meta-repo\scripts\build_meta_rep
 
 This creates:
 
-- `<owner>-project-atlas`: the top-level categorized project map.
+- `<owner>-project-atlas`: the top-level download map for APK, EXE, package, archive, and release asset links.
 - `<owner>-release-hub`: repositories with latest GitHub releases.
 - `<owner>-pages-hub`: visual GitHub Pages gallery with a deployable `docs/index.html`.
 - `<owner>-skills-hub`: Codex skills, workflow skills, and agent recipes.
@@ -25,7 +25,7 @@ Each generated repository includes:
 - `scripts/update_meta.py` for live GitHub metadata refresh.
 - `.github/workflows/update-meta.yml` for daily and manual updates.
 - `data/*.json` for downstream automation.
-- GitHub Pages deployment workflow for atlas and pages hub.
+- GitHub Pages deployment workflow for every generated hub.
 - A README designed as a GitHub-rendered homepage.
 
 ## Privacy Defaults
@@ -50,4 +50,4 @@ For GitHub Actions, store the token in `META_GITHUB_TOKEN` and keep `META_INCLUD
 5. Verify Actions are present and Pages workflows are queued or triggerable.
 6. For public repos, mention private repositories are intentionally omitted.
 
-Read `references/meta_repo_blueprint.md` when customizing categories, hub naming, or automation policy.
+Read `references/meta_repo_blueprint.md` when customizing artifact categories, hub naming, or automation policy.

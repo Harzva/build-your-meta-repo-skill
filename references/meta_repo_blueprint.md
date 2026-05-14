@@ -6,7 +6,7 @@ Use four repositories when the owner has multiple kinds of work:
 
 | Repository | Role |
 |---|---|
-| `<owner>-project-atlas` | Top-level categorized map of public repositories, with forks at the tail. |
+| `<owner>-project-atlas` | Download-first map of APK, EXE, package, archive, and release asset links, grouped by repository function. |
 | `<owner>-release-hub` | Latest releases, version tags, artifact entry points, and release-ready projects. |
 | `<owner>-pages-hub` | Visual gallery of GitHub Pages sites, docs, demos, and live surfaces. |
 | `<owner>-skills-hub` | Codex skills, workflow skills, prompt recipes, and agent operating procedures. |
@@ -20,13 +20,14 @@ Use one atlas repository when the owner has fewer than 15 repositories.
 - Default visibility: public metadata only.
 - Private coverage requires a private meta repository and explicit token secret.
 - Generated data should live in `data/*.json`.
-- GitHub Pages sites should publish from `docs/` via `actions/deploy-pages`.
+- Every hub should publish from `docs/` via `actions/deploy-pages`.
 
 ## Category Rules
 
 Keep classification explainable and easy to edit:
 
 - Forks are grouped at the end.
+- APK, EXE, MSI, DMG, AppImage, DEB, RPM, IPA, ZIP, and tarball assets belong in the project atlas.
 - Pages-enabled repositories can be promoted to the Pages hub.
 - Repositories with latest releases can be promoted to the Release hub.
 - Names or descriptions containing `skill`, `Codex skill`, `plugin`, or workflow-skill language belong in the Skills hub.
